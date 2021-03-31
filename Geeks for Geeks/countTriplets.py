@@ -31,7 +31,7 @@ class Solution:
                 sm = arr[j] + arr[k]
                 if sm == arr[i]:
                     count += 1
-                    break
+                    k -= 1
                 elif sm < arr[i]:
                     j += 1
                 else:
