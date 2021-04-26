@@ -38,6 +38,24 @@ class LinkedList{
         this.head = newNode;
     }
 
+    deleteIndex(ind){
+        let curr = this.head;
+        if (ind === 1){
+            this.head = this.head.next;
+            return
+        }
+        let iter = 0;
+        while (curr){
+            if ( iter + 1 === ind ){
+                curr.next = curr.next.next;
+                return true
+            }
+            curr = curr.next;
+            iter++;
+        }
+        return false
+    }
+
     deleteNode(data){
         if (this.head.data === data){
             this.head = this.head.next;
@@ -56,10 +74,12 @@ class LinkedList{
 
     display(){
         let curr = this.head;
+        let ans = "";
         while (curr){
-            console.log(curr.data)
+            ans += " " + curr.data;
             curr = curr.next
         }
+        return ans;
     }
 }
 
