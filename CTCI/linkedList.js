@@ -74,9 +74,9 @@ class LinkedList{
 
     display(){
         let curr = this.head;
-        let ans = "";
+        let ans = "head";
         while (curr){
-            ans += " " + curr.data;
+            ans += " -> " + curr.data;
             curr = curr.next
         }
         return ans;
