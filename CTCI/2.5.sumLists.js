@@ -37,7 +37,7 @@ let l1 = new LinkedList();
 let l2 = new LinkedList();
 let l3 = new Solution();
 
-let dig1 = [5, 9, 8],
+let dig1 = [5,9,8],
     dig2 = [7,1,6];
 for (let i = 0; i < dig1.length; i++) {
     l1.insertEnd(dig1[i]);
