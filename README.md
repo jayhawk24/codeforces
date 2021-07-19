@@ -11,3 +11,4 @@
 - iterative and recursive approach
 - binary search array sorted
 - majority element moore's algorithm
+- kadane's algoritm
