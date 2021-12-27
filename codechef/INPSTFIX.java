@@ -74,14 +74,15 @@ class INPSTFIX {
                         char popped = stack.pop();
                         do {
                             postfix.append(popped);
-                            if(stack.isEmpty()) break;
+                            if (stack.isEmpty())
+                                break;
                             popped = stack.pop();
                         } while (popped != '(' && !stack.isEmpty());
 
                     }
 
                     else {
-                        if(stack.isEmpty()) {
+                        if (stack.isEmpty() || symbol == '(') {
                             stack.add(symbol);
                             continue;
                         }
@@ -91,9 +92,11 @@ class INPSTFIX {
                         if (top.data != '(') {
 
                             while (top.priority >= s.priority && !stack.isEmpty()) {
-
-                                postfix.append(stack.pop());
-                                if(stack.isEmpty()) break;
+                                char popped = stack.pop();
+                                if (popped != '(')
+                                    postfix.append(popped);
+                                if (stack.isEmpty())
+                                    break;
                                 top = new Symbol(stack.lastElement());
 
                             }
@@ -113,7 +116,7 @@ class INPSTFIX {
                     postfix.append(popped);
             }
             System.out.println(postfix);
-
+            postfix.delete(0, postfix.length());
             t--;
         }
     }
@@ -137,7 +140,7 @@ class INPSTFIX {
                 this.priority = 2;
             else if (data == '^')
                 this.priority = 3;
-            this.priority = 0;
+            else this.priority = 0;
         }
     }
 }
